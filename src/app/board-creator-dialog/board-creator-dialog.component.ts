@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ScoresService } from '../shared/scores.service';
+import { ScoresService } from '../shared/services/scores/scores.service';
 import { Time } from '@angular/common';
 import { BoardComponent } from '../board/board.component';
 // import { AuthService } from '../shared/auth.service';

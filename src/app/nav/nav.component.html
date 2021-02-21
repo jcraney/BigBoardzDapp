@@ -9,10 +9,10 @@
             <span *ngIf="drawer.opened">Big Boardz</span>
         </mat-toolbar>
         <mat-nav-list>
-            <a mat-list-item [routerLink]="['openboardz']">Open Boardz</a>
-            <a mat-list-item [routerLink]="['mysquarez']">My Squarez</a>
-            <a mat-list-item [routerLink]="['profile']">My Profile</a>
-            <a mat-list-item [routerLink]="['host']">Host</a>
+            <a mat-list-item [routerLink]="['openboardz']" (click)="drawer.close()">Open Boardz</a>
+            <a mat-list-item [routerLink]="['mysquarez']" (click)="drawer.close()">My Squarez</a>
+            <a mat-list-item [routerLink]="['profile']" (click)="drawer.close()">My Profile</a>
+            <a mat-list-item [routerLink]="['host']" (click)="drawer.close()">Host</a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
