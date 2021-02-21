@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   AngularFirestoreDocument,
 } from '@angular/fire/firestore'; */
 import { Observable } from 'rxjs';
-import { ScoresService } from '../shared/scores.service';
+import { ScoresService } from '../shared/services/scores/scores.service';
 
 interface Board {
   id: string;
