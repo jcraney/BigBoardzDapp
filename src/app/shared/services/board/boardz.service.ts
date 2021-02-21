@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 // import { AngularFirestore } from '@angular/fire/firestore';
-import { Board } from './board.model';
+import { Board } from '../../models/board.model';
 
 @Injectable({
   providedIn: 'root',

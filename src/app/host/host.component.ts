@@ -10,7 +10,7 @@ import { BoardCreatorDialogComponent } from '../board-creator-dialog/board-creat
   AngularFirestoreCollection,
   AngularFirestoreDocument,
 } from '@angular/fire/firestore/'; */
-import { Board } from '../shared/board.model';
+import { Board } from '../shared/models/board.model';
 import { Observable } from 'rxjs';
 // import { AuthService } from '../shared/auth.service';
 import { HttpClient } from '@angular/common/http';
