@@ -1,0 +1,49 @@
+<p>host works!</p>
+<div *ngIf="isHost; else notHost">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Stats</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <ul>
+                <li>Open Boards: {{count}}</li>
+                <li>Closed Boards: 184</li>
+                <li>Today's profits: $4792.68</li>
+                <li>YTD profits: $276,581.43</li>
+            </ul>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Board Controls</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <button mat-raised-button color="primary" (click)="launchBoardCreator()">Start</button>
+            <button class="button" mat-raised-button (click)="createOfficial()">Create Official Boardz</button>
+            <button class="button" mat-raised-button (click)="selectWinners()">select winners</button>
+            <!-- <button class="button" mat-raised-button (click)="payWinners()">pay winners</button> -->
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>My Open Boardz</mat-card-title>
+        </mat-card-header>
+        <mat-list>
+            <mat-list-item *ngFor="let board of boardz">{{board.gameId}} |
+                <h3>{{board.homeTeam}}</h3>
+                <strong> vs </strong>
+                <h3>{{board.awayTeam}}</h3>
+                <br />
+                <button class="button" mat-raised-button (click)="makeFakePurchaseSquarez(board.id)">fake purchases</button>
+            </mat-list-item>
+        </mat-list>
+    </mat-card>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Latest Square Purchases</mat-card-title>
+        </mat-card-header>
+    </mat-card>
+</div>
+<ng-template #notHost>
+    <p>Sorry, you are not a host.</p>
+</ng-template>

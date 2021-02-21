@@ -1,0 +1,131 @@
+.buttonholder {
+    margin-left: 5%;
+    height: 100%;
+}
+.grid-circle-white {
+    width: 100%;
+    border-radius: 100%;
+    background: white;
+    text-align: center;
+    vertical-align: middle;
+}
+.circle-white {
+    height: 85%;
+    width: 85%;
+    border-radius: 100%;
+    background: white;
+    text-align: center;
+    vertical-align: middle;
+}
+.row{
+    margin: auto;
+}
+.blackrow {
+    background: black;
+    border: 1px solid #000000;
+}
+.wholeboard {
+    padding: 5px;
+    border-collapse: collapse;
+    border-radius: 30px;
+    border: 3px solid #000000;
+    font-family: 'Eras Bold ITC';
+    margin-left: 5%;
+}
+.smallboard {
+    width: 275px;
+    height: 275px;
+}
+.gameboard {
+    border-collapse: collapse;
+    /*border: 3px solid #000000;*/
+    margin: auto;
+}
+.scoresFeed {
+    font-family: 'Eras Bold ITC';
+}
+.boardcell {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+.winner {
+    background-color: #FFD700;
+    border: 1px solid #000000;
+}
+.numbers {
+    background: black;
+    width: 50px;
+}
+.round-top-left {
+    border-top-left-radius: 25px;
+}
+.round-top-right {
+    border-top-right-radius: 25px;
+}
+.round-bottom-left {
+    border-bottom-left-radius: 25px;
+}
+.round-bottom-right {
+    border-bottom-right-radius: 25px;
+}
+.away {
+    margin: 0 auto;
+    white-space: nowrap;
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+    /* IE */
+    -ms-transform: rotate(-90deg);
+    /* Opera */
+    -o-transform: rotate(-90deg);
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+.awayTeam {
+    width: 5%;
+    height: 100%;
+    float: left;
+    vertical-align: bottom;
+}
+.boardFloat {
+    margin-left: 5%;
+}
+.slam {
+    float: none;
+    display: table-cell;
+    vertical-align: bottom;
+}
+.faq {
+    height: 100%;
+    background-color: black;
+}
+.bubble {
+    animation: pulse 1s infinite;
+    -webkit-animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    25% {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+    75% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+    }
+    25% {
+        -webkit-transform: scale(2);
+    }
+    75% {
+        -webkit-transform: scale(1);
+    }
+}

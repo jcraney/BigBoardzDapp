@@ -1,0 +1,32 @@
+export class Board {
+  id!: string;
+  ownerPaypal!: string;
+  gameId!: string;
+  hostId!: string;
+  hostName!: string;
+  startTime!: Date;
+  endTime!: Date;
+  homeTeam!: string;
+  awayTeam!: string;
+  boardFeeUSD!: string;
+  q1WinnerAddressF!: string;
+  q2WinnerAddressF!: string;
+  q3WinnerAddressF!: string;
+  q4WinnerAddressF!: string;
+  q1WinnerAddressB!: string;
+  q2WinnerAddressB!: string;
+  q3WinnerAddressB!: string;
+  q4WinnerAddressB!: string;
+  q1HomeScore!: number;
+  q2HomeScore!: number;
+  q3HomeScore!: number;
+  q4HomeScore!: number;
+  q1AwayScore!: number;
+  q2AwayScore!: number;
+  q3AwayScore!: number;
+  q4AwayScore!: number;
+  versus!: string;
+  winnersPaid!: boolean;
+  across!: Array<number>;
+  down!: Array<number>;
+}

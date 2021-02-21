@@ -1,0 +1,884 @@
+<p>board works!</p>
+<div class="row" *ngIf="board | async as currentBoard">
+    <div>number of open squares:{{openCount}}</div>
+    <h1 align="right">{{currentBoard.homeTeam}}</h1>
+    <div class="awayTeam">
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <h1 class="away"> {{currentBoard.awayTeam}}</h1>
+    </div>
+    <div class="wholeboard">
+        <mat-grid-list class="gameboard" cols="11" rowHeight="1:1">
+            <mat-grid-tile class="blackrow round-top-left">space</mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.across[0]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.across[1]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.across[2]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.across[3]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.across[4]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.across[5]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.across[6]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.across[7]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.across[8]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow round-top-right">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.across[9]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{ currentBoard.down[0] }}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[0][0]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[0][0].mySquare, 'winner' :rows[0][0].winner}">{{ rows[0][0].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[0][1]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[0][1].mySquare, 'winner' :rows[0][1].winner}">{{ rows[0][1].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[0][2]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[0][2].mySquare, 'winner' :rows[0][2].winner}">{{ rows[0][2].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[0][3]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[0][3].mySquare, 'winner' :rows[0][3].winner}">{{ rows[0][3].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[0][4]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[0][4].mySquare, 'winner' :rows[0][4].winner}">{{ rows[0][4].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[0][5]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[0][5].mySquare, 'winner' :rows[0][5].winner}">{{ rows[0][5].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[0][6]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[0][6].mySquare, 'winner' :rows[0][6].winner}">{{ rows[0][6].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[0][7]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[0][7].mySquare, 'winner' :rows[0][7].winner}">{{ rows[0][7].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[0][8]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[0][8].mySquare, 'winner' :rows[0][8].winner}">{{ rows[0][8].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[0][9]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[0][9].mySquare, 'winner' :rows[0][9].winner}">{{ rows[0][9].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.down[1]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[1][0]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[1][0].mySquare, 'winner' :rows[1][0].winner}">{{ rows[1][0].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[1][1]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[1][1].mySquare, 'winner' :rows[1][1].winner}">{{ rows[1][1].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[1][2]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[1][2].mySquare, 'winner' :rows[1][2].winner}">{{ rows[1][2].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[1][3]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[1][3].mySquare, 'winner' :rows[1][3].winner}">{{ rows[1][3].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[1][4]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[1][4].mySquare, 'winner' :rows[1][4].winner}">{{ rows[1][4].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[1][5]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[1][5].mySquare, 'winner' :rows[1][5].winner}">{{ rows[1][5].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[1][6]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[1][6].mySquare, 'winner' :rows[1][6].winner}">{{ rows[1][6].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[1][7]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[1][7].mySquare, 'winner' :rows[1][7].winner}">{{ rows[1][7].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[1][8]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[1][8].mySquare, 'winner' :rows[1][8].winner}">{{ rows[1][8].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[1][9]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[1][9].mySquare, 'winner' :rows[1][9].winner}">{{ rows[1][9].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.down[2]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[2][0]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[2][0].mySquare, 'winner' :rows[2][0].winner}">{{ rows[2][0].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[2][1]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[2][1].mySquare, 'winner' :rows[2][1].winner}">{{ rows[2][1].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[2][2]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[2][2].mySquare, 'winner' :rows[2][2].winner}">{{ rows[2][2].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[2][3]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[2][3].mySquare, 'winner' :rows[2][3].winner}">{{ rows[2][3].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[2][4]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[2][4].mySquare, 'winner' :rows[2][4].winner}">{{ rows[2][4].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[2][5]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[2][5].mySquare, 'winner' :rows[2][5].winner}">{{ rows[2][5].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[2][6]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[2][6].mySquare, 'winner' :rows[2][6].winner}">{{ rows[2][6].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[2][7]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[2][7].mySquare, 'winner' :rows[2][7].winner}">{{ rows[2][7].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[2][8]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[2][8].mySquare, 'winner' :rows[2][8].winner}">{{ rows[2][8].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[2][9]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[2][9].mySquare, 'winner' :rows[2][9].winner}">{{ rows[2][9].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.down[3]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[3][0]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[3][0].mySquare, 'winner' :rows[3][0].winner}">{{ rows[3][0].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[3][1]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[3][1].mySquare, 'winner' :rows[3][1].winner}">{{ rows[3][1].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[3][2]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[3][2].mySquare, 'winner' :rows[3][2].winner}">{{ rows[3][2].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[3][3]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[3][3].mySquare, 'winner' :rows[3][3].winner}">{{ rows[3][3].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[3][4]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[3][4].mySquare, 'winner' :rows[3][4].winner}">{{ rows[3][4].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[3][5]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[3][5].mySquare, 'winner' :rows[3][5].winner}">{{ rows[3][5].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[3][6]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[3][6].mySquare, 'winner' :rows[3][6].winner}">{{ rows[3][6].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[3][7]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[3][7].mySquare, 'winner' :rows[3][7].winner}">{{ rows[3][7].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[3][8]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[3][8].mySquare, 'winner' :rows[3][8].winner}">{{ rows[3][8].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[3][9]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[3][9].mySquare, 'winner' :rows[3][9].winner}">{{ rows[3][9].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.down[4]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[4][0]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[4][0].mySquare, 'winner' :rows[4][0].winner}">{{ rows[4][0].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[4][1]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[4][1].mySquare, 'winner' :rows[4][1].winner}">{{ rows[4][1].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[4][2]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[4][2].mySquare, 'winner' :rows[4][2].winner}">{{ rows[4][2].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[4][3]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[4][3].mySquare, 'winner' :rows[4][3].winner}">{{ rows[4][3].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[4][4]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[4][4].mySquare, 'winner' :rows[4][4].winner}">{{ rows[4][4].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[4][5]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[4][5].mySquare, 'winner' :rows[4][5].winner}">{{ rows[4][5].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[4][6]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[4][6].mySquare, 'winner' :rows[4][6].winner}">{{ rows[4][6].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[4][7]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[4][7].mySquare, 'winner' :rows[4][7].winner}">{{ rows[4][7].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[4][8]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[4][8].mySquare, 'winner' :rows[4][8].winner}">{{ rows[4][8].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[4][9]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[4][9].mySquare, 'winner' :rows[4][9].winner}">{{ rows[4][9].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.down[5]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[5][0]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[5][0].mySquare, 'winner' :rows[5][0].winner}">{{ rows[5][0].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[5][1]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[5][1].mySquare, 'winner' :rows[5][1].winner}">{{ rows[5][1].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[5][2]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[5][2].mySquare, 'winner' :rows[5][2].winner}">{{ rows[5][2].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[5][3]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[5][3].mySquare, 'winner' :rows[5][3].winner}">{{ rows[5][3].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[5][4]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[5][4].mySquare, 'winner' :rows[5][4].winner}">{{ rows[5][4].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[5][5]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[5][5].mySquare, 'winner' :rows[5][5].winner}">{{ rows[5][5].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[5][6]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[5][6].mySquare, 'winner' :rows[5][6].winner}">{{ rows[5][6].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[5][7]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[5][7].mySquare, 'winner' :rows[5][7].winner}">{{ rows[5][7].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[5][8]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[5][8].mySquare, 'winner' :rows[5][8].winner}">{{ rows[5][8].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[5][9]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[5][9].mySquare, 'winner' :rows[5][9].winner}">{{ rows[5][9].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.down[6]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[6][0]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[6][0].mySquare, 'winner' :rows[6][0].winner}">{{ rows[6][0].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[6][1]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[6][1].mySquare, 'winner' :rows[6][1].winner}">{{ rows[6][1].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[6][2]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[6][2].mySquare, 'winner' :rows[6][2].winner}">{{ rows[6][2].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[6][3]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[6][3].mySquare, 'winner' :rows[6][3].winner}">{{ rows[6][3].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[6][4]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[6][4].mySquare, 'winner' :rows[6][4].winner}">{{ rows[6][4].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[6][5]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[6][5].mySquare, 'winner' :rows[6][5].winner}">{{ rows[6][5].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[6][6]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[6][6].mySquare, 'winner' :rows[6][6].winner}">{{ rows[6][6].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[6][7]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[6][7].mySquare, 'winner' :rows[6][7].winner}">{{ rows[6][7].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[6][8]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[6][8].mySquare, 'winner' :rows[6][8].winner}">{{ rows[6][8].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[6][9]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[6][9].mySquare, 'winner' :rows[6][9].winner}">{{ rows[6][9].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.down[7]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[7][0]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[7][0].mySquare, 'winner' :rows[7][0].winner}">{{ rows[7][0].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[7][1]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[7][1].mySquare, 'winner' :rows[7][1].winner}">{{ rows[7][1].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[7][2]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[7][2].mySquare, 'winner' :rows[7][2].winner}">{{ rows[7][2].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[7][3]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[7][3].mySquare, 'winner' :rows[7][3].winner}">{{ rows[7][3].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[7][4]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[7][4].mySquare, 'winner' :rows[7][4].winner}">{{ rows[7][4].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[7][5]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[7][5].mySquare, 'winner' :rows[7][5].winner}">{{ rows[7][5].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[7][6]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[7][6].mySquare, 'winner' :rows[7][6].winner}">{{ rows[7][6].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[7][7]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[7][7].mySquare, 'winner' :rows[7][7].winner}">{{ rows[7][7].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[7][8]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[7][8].mySquare, 'winner' :rows[7][8].winner}">{{ rows[7][8].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[7][9]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[7][9].mySquare, 'winner' :rows[7][9].winner}">{{ rows[7][9].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.down[8]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[8][0]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[8][0].mySquare, 'winner' :rows[8][0].winner}">{{ rows[8][0].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[8][1]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[8][1].mySquare, 'winner' :rows[8][1].winner}">{{ rows[8][1].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[8][2]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[8][2].mySquare, 'winner' :rows[8][2].winner}">{{ rows[8][2].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[8][3]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[8][3].mySquare, 'winner' :rows[8][3].winner}">{{ rows[8][3].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[8][4]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[8][4].mySquare, 'winner' :rows[8][4].winner}">{{ rows[8][4].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[8][5]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[8][5].mySquare, 'winner' :rows[8][5].winner}">{{ rows[8][5].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[8][6]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[8][6].mySquare, 'winner' :rows[8][6].winner}">{{ rows[8][6].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[8][7]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[8][7].mySquare, 'winner' :rows[8][7].winner}">{{ rows[8][7].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[8][8]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[8][8].mySquare, 'winner' :rows[8][8].winner}">{{ rows[8][8].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[8][9]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[8][9].mySquare, 'winner' :rows[8][9].winner}">{{ rows[8][9].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile class="blackrow round-bottom-left">
+                <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                    <mat-grid-tile>
+                        <h3>{{currentBoard.down[9]}}</h3>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[9][0]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[9][0].mySquare, 'winner' :rows[9][0].winner}">{{ rows[9][0].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[9][1]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[9][1].mySquare, 'winner' :rows[9][1].winner}">{{ rows[9][1].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[9][2]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[9][2].mySquare, 'winner' :rows[9][2].winner}">{{ rows[9][2].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[9][3]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[9][3].mySquare, 'winner' :rows[9][3].winner}">{{ rows[9][3].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[9][4]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[9][4].mySquare, 'winner' :rows[9][4].winner}">{{ rows[9][4].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[9][5]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[9][5].mySquare, 'winner' :rows[9][5].winner}">{{ rows[9][5].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[9][6]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[9][6].mySquare, 'winner' :rows[9][6].winner}">{{ rows[9][6].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[9][7]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[9][7].mySquare, 'winner' :rows[9][7].winner}">{{ rows[9][7].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[9][8]" class="boardcell">
+                <p [ngClass]="{'bubble': rows[9][8].mySquare, 'winner' :rows[9][8].winner}">{{ rows[9][8].initials }}
+                <p>
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="rows[9][9]" class="boardcell round-bottom-right">
+                <p [ngClass]="{'bubble': rows[9][9].mySquare, 'winner' :rows[9][9].winner}">{{ rows[9][9].initials }}
+                <p>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <div class="buttonholder" align="center">
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <h2>{{currentBoard.homeTeam}} vs. {{currentBoard.awayTeam}}</h2>
+        <h2>${{currentBoard.boardFeeUSD}} per square</h2>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <mat-form-field>
+            <mat-label>How many squarez?</mat-label>
+            <mat-select name="numOfSquarez" [(value)]="selected">
+                <mat-option>None</mat-option>
+                <mat-option value="1">1</mat-option>
+                <mat-option value="2">2</mat-option>
+                <mat-option value="3">3</mat-option>
+                <mat-option value="4">4</mat-option>
+                <mat-option value="5">5</mat-option>
+                <mat-option value="6">6</mat-option>
+                <mat-option value="7">7</mat-option>
+                <mat-option value="8">8</mat-option>
+                <mat-option value="9">9</mat-option>
+                <mat-option value="10">10</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <button class="button" class="button" mat-raised-button color="primary" (click)="addToOrder()">Add
+            to Cart</button>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+    </div>
+    <div class="wholeboard" *ngIf="currentBoard.winnersPaid">
+        <h1 align="center">Winners</h1>
+        <mat-grid-list cols='2' rowHeight="1:.25">
+            <mat-grid-tile>
+                <h3>Forward Q1: {{currentBoard.q1WinnerAddressF}}</h3>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <h3>Forward Q2: {{currentBoard.q2WinnerAddressF}}</h3>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <h3>Backwards Q1: {{currentBoard.q1WinnerAddressB}}</h3>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <h3>Backwards Q2: {{currentBoard.q2WinnerAddressB}}</h3>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <h3>Forward Q3: {{currentBoard.q3WinnerAddressF}}</h3>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <h3>Forward Q4:{{currentBoard.q4WinnerAddressF}}</h3>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <h3>Backwards Q3: {{currentBoard.q3WinnerAddressB}}</h3>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <h3>Backwards Q4.{{currentBoard.q4WinnerAddressB}}</h3>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
+
+
+<div *ngIf="nuBoard">
+    <div class="row">
+        <div style='width: 300px;'>
+            <h1 align='right'>{{nuBoard.homeTeam}}</h1>
+            <div class="awayTeam">
+                <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+                <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+                <h1 class='away'>{{nuBoard.awayTeam}}</h1>
+            </div>
+            <div class="wholeboard smallboard">
+                <mat-grid-list class="gameboard" cols="11" rowHeight="1:1">
+                    <mat-grid-tile class="blackrow round-top-left">space</mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.across[0]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.across[1]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.across[2]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.across[3]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.across[4]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.across[5]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.across[6]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.across[7]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.across[8]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="blackrow round-top-right">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.across[9]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{ nuBoard.down[0] }}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[0][0] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[0][1] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[0][2] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[0][3] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[0][4] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[0][5] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[0][6] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[0][7] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[0][8] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[0][9] }}</mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.down[1]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[1][0] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[1][1] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[1][2] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[1][3] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[1][4] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[1][5] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[1][6] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[1][7] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[1][8] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[1][9] }}</mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.down[2]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[2][0] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[2][1] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{rows[2][2] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[2][3] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[2][4] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[2][5] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[2][6] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{rows[2][7] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[2][8] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[2][9] }}</mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.down[3]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[3][0] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[3][1] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[3][2] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[3][3] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[3][4] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[3][5] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[3][6] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[3][7] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[3][8] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[3][9] }}</mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.down[4]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[4][0] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[4][1] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{rows[4][2] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[4][3] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[4][4] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[4][5] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[4][6] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[4][7] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[4][8] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[4][9] }}</mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.down[5]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[5][0] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[5][1] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[5][2] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[5][3] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[5][4] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[5][5] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[5][6] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[5][7] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[5][8] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[5][9] }}</mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.down[6]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[6][0] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[6][1] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[6][2] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[6][3] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[6][4] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[6][5] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[6][6] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[6][7] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[6][8] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[6][9] }}</mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.down[7]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[7][0] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[7][1] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[7][2] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[7][3] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[7][4] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[7][5] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[7][6] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[7][7] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[7][8] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[7][9] }}</mat-grid-tile>
+                    <mat-grid-tile class="blackrow">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{ nuBoard.down[8]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[8][0] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[8][1] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[8][2] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[8][3] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[8][4] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[8][5] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[8][6] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[8][7] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[8][8] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[8][9] }}</mat-grid-tile>
+                    <mat-grid-tile class="blackrow round-bottom-left">
+                        <mat-grid-list class="grid-circle-white" cols="1" rowHeight="1:1">
+                            <mat-grid-tile>
+                                <h3>{{nuBoard.down[9]}}</h3>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[9][0] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[9][1] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[9][2] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[9][3] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[9][4] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[9][5] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[9][6] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[9][7] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell">{{ rows[9][8] }}</mat-grid-tile>
+                    <mat-grid-tile class="boardcell round-bottom-right">{{ rows[9][9] }}</mat-grid-tile>
+                </mat-grid-list>
+            </div>
+            <div class="buttonholder">
+                <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+                <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+                <button align="center" mat-raised-button color="primary" style="width: 100%;"
+                    (click)="randomizeDownAndAcross()">Randomize Down and Across</button>
+                <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+                <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+            </div>
+        </div>
+    </div>
+</div>

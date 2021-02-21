@@ -1,0 +1,19 @@
+<div id="main" class="container">
+    <h2>Choose a game</h2>
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let game of games" class="slide" align='center'>
+            <div class='gameholder'></div>
+            <mat-card>
+                <button mat-raised-button color="primary" (click)="getBoardz(game.event_id)"> {{ game.teams[1].name }} vs.
+                    {{ game.teams[0].name }} </button>
+            </mat-card>
+        </div>
+    </ngx-slick-carousel>
+    <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+    <div *ngFor="let board of boardz">
+        <mat-card>
+            <app-board boardId="{{ board.id }}"></app-board>
+        </mat-card>
+        <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+    </div>
+</div>

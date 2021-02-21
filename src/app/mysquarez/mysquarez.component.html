@@ -1,0 +1,17 @@
+<div class="container">
+    <mat-expansion-panel *ngFor="let order of orders">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{order.versus}}</mat-panel-title>
+            <mat-panel-description>{{order.numOfSquarez}} squarez on board hosted by: {{order.hostName}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>Squarez I own: </p>
+        <ul>
+            <div *ngFor="let square of order.squarez">
+                <li>{{square.homeNum}} - {{square.awayNum}}</li>
+                <button mat-raised-button color="primary" (click)="viewBoard( square.boardId )">View Board</button>
+            </div>
+        </ul>
+    </mat-expansion-panel>
+    <span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span>
+</div>
